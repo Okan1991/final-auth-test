@@ -1,20 +1,13 @@
-# netlify.toml
-
-# Vertelt Netlify hoe de site gebouwd moet worden.
 [build]
   command = "npm run build"
   publish = "dist"
 
-# Vertelt Netlify waar de serverless functies staan.
 [functions]
   directory = "netlify/functions"
 
-# Dit is de cruciale regel:
-# Vang alle inkomende POST-requests naar de hoofdpagina ("/") af
-# en stuur ze door naar onze "callback" functie.
 [[redirects]]
   from = "/"
   to = "/.netlify/functions/callback"
-  status = 200 # Een "200" rewrite gebeurt onzichtbaar op de server.
+  status = 200
   force = true
   conditions = { HttpMethod = ["POST"] }
