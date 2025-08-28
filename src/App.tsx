@@ -13,9 +13,9 @@ function App() {
   });
 
   const handleLogin = () => {
+    // DEZE REGEL IS NU GECORRIGEERD (zonder app-api)
     const htiLaunchUrl = 'http://we-are-acc.vito.be/nl/hti/launch';
     const clientId = 'https://id.we-are-acc.vito.be/client/dcd2499f-656b-46ea-9ce-10aff48f1425';
-    // Gebruik de URL die al is goedgekeurd door VITO
     const redirectUri = 'https://sage-cucurucho-4495c9.netlify.app/'; 
     const fullUrl = `${htiLaunchUrl}?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
     setLaunchUrl(fullUrl);
@@ -30,7 +30,6 @@ function App() {
       ) : (
         <div>
           <p>Login link generated. Click to continue:</p>
-          {/* DEFINITIEVE CORRECTIE HIER TOEGEPAST */}
           <a href={launchUrl()} style={{ color: 'blue', textDecoration: 'underline' }}>
             {launchUrl()}
           </a>
@@ -39,5 +38,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
