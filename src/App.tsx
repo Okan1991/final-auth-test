@@ -18,10 +18,10 @@ function App() {
 
   // Stap 1: Stuur de gebruiker naar de CORRECTE login-pagina
   const handleLogin = () => {
-    // DE CORRECTE FRONT-END URL, ZOALS AANGEGEVEN DOOR BEAU
-    const htiLaunchUrl = 'https://we-are-acc.vito.be/hti/launch'; 
+    // DE CORRECTE FRONT-END URL, MET /nl/
+    const htiLaunchUrl = 'https://we-are-acc.vito.be/nl/hti/launch'; 
     const clientId = 'https://id.we-are-acc.vito.be/client/dcd2499f-656b-46ea-99ce-10aff48f1425';
-    const redirectUri = 'https://sage-cucurucho-4495c9.netlify.app/'; // De live, geregistreerde URL
+    const redirectUri = 'https://sage-cucurucho-4495c9.netlify.app/';
 
     const fullUrl = `${htiLaunchUrl}?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
 
