@@ -9,8 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-authn-browser": "^3.1.0",
     "@netlify/functions": "^4.2.4",
+    "oidc-client-ts": "^3.3.0",
     "solid-js": "^1.9.8"
   },
   "devDependencies": {
