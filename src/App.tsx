@@ -34,7 +34,7 @@ function App() {
     const clientId = 'https://id.we-are-acc.vito.be/client/dcd2499f-656b-46ea-99ce-10aff48f1425';
     
     // GEBRUIK LOCALHOST!
-    const redirectUri = 'https://sage-cucurucho-4495c9.netlify.app/';
+    const redirectUri = 'https://sage-cucurucho-4495c9.netlify.app/.netlify/functions/callback';
     
     const fullUrl = `${htiLaunchUrl}?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
     
