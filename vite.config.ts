@@ -1,10 +1,14 @@
-import { defineConfig } from 'vite'
-import solid from 'vite-plugin-solid'
+import { defineConfig } from 'vite';
+import solidPlugin from 'vite-plugin-solid';
 
 export default defineConfig({
-  appType: 'spa',
-  plugins: [solid()],
+  plugins: [solidPlugin()],
+  publicDir: 'public',  // Belangrijk!
   server: {
-    port: 5176, // Dit forceert de server om de juiste poort te gebruiken
+    port: 5176,
+    host: true
   },
-})
+  build: {
+    target: 'esnext',
+  },
+});
