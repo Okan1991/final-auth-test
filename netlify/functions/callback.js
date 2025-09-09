@@ -1,26 +1,27 @@
-exports.handler = async (event, context) => {
-  // The HTI token is sent in the body of the POST request.
-  // Netlify automatically parses it if it's form-urlencoded.
-  const token = event.body.hti_token;
+exports.handler = async (event) => {
+  // De hti_token wordt verstuurd als form data, we moeten de body parsen.
+  const params = new URLSearchParams(event.body);
+  const token = params.get('hti_token');
 
   if (token) {
-    // Construct the final URL to redirect the user to.
-    // We add the token as a query parameter that our front-end can read.
+    // We hebben de token! Stuur de gebruiker nu naar de hoofdpagina
+    // met de token in de URL als een query parameter (een GET request).
     const finalUrl = `/?hti_token=${encodeURIComponent(token)}`;
 
     return {
-      statusCode: 302, // 302 means "Found" (a temporary redirect)
+      statusCode: 302, // Dit is een tijdelijke redirect
       headers: {
         Location: finalUrl,
       },
     };
   }
 
-  // If no token is found, redirect to the home page with an error.
+  // Als er geen token is, stuur door met een foutmelding.
+  const errorUrl = `/?error=token_missing_in_post`;
   return {
     statusCode: 302,
     headers: {
-      Location: '/?error=token_missing',
+      Location: errorUrl,
     },
   };
 };

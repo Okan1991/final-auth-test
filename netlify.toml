@@ -5,6 +5,15 @@
 [functions]
   directory = "netlify/functions"
 
+# Deze regel stuurt alle POST requests naar onze functie.
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/callback"
+  status = 200 # Dit maakt er een rewrite van (URL verandert niet)
+  force = true
+  conditions = {HttpMethod = ["POST"]}
+
+# Deze fallback-regel is voor alle normale (GET) bezoeken aan de site.
 [[redirects]]
   from = "/*"
   to = "/index.html"
